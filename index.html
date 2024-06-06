@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <title>Pallindrome Checker</title>
+    <style>
+        *{ font-size: 30px; font-family: 'Poppins';}
+        ::placeholder{color: rgb(186, 235, 255);text-shadow: 0px 0px 0px;}
+        h1{color: aliceblue;text-shadow: 2px 2px 5px  black;}
+        body{background-color: rgb(1, 83, 160)}
+        input{outline: none ;border-radius: 10px;background-color: rgb(0, 194, 194);color: aqua; text-shadow: 1px 1px 3px rgb(0, 111, 119);}
+        .btn{border: none;box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;text-shadow: none;}
+        .btn:hover{background-color: aqua;transition: 0.3s;box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 247, 255, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;color: rgb(0, 194, 194);}
+        .btn:active{transition: 0.3s;transform: translateY(2px);box-shadow: rgba(0, 0, 0, 0.4) 0px 0px 0px, rgba(0, 247, 255, 0.3) 0px 7px 13px 0px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;color: rgb(0, 194, 194);;}
+        h2{color: rgb(0, 60, 116);text-shadow: 1px 1px 1px rgb(0, 0, 0);}
+    </style>
+</head>
+<body>
+    <center>
+        <h1>Pallindrome Checker </h1>
+        <form onsubmit="Check()">
+        <input type="text" placeholder="Enter your string" id="str">
+        <br><br>
+        <input type="submit" value="Check" class="btn">
+        <br><br>
+        <h2 id="msg"></h2>
+        </form>
+
+        <script>
+            function Check(){
+                event.preventDefault();
+                let str =document.getElementById("str");
+                let msg =document.getElementById("msg");
+
+                if(str.value.trim() == "")
+                {
+                    alert("String cannot be empty");
+                    msg.innerHTML = "";
+                    str.focus();
+                    return;
+                }
+
+                let s = str.value;
+                let rs = s.split("").reverse().join("");
+
+                if(s == rs)
+                    msg.innerHTML = "Yes its a Pallindrome";
+                else
+                    msg.innerHTML = "No its a Pallindrome";
+            }
+        </script>
+    </center>
+    
+</body>
+</html>
